@@ -12,11 +12,14 @@ test("LocateMultipleElements", async ({page}) => {
 
     }*/
 
+    
+      
     const products = await page.$$("//div[@id='tbodyid']//h4/a");
+
     for(const product of products)
         {
-            const proname = await product.textContent();
-            console.log(proname);
+           const proname = await product.textContent();
+           console.log(proname);
 
         }
   
