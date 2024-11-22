@@ -7,7 +7,9 @@ test('radio buttons',async({page})=>{
     await page.locator("//input[@id='male']").check(); //male
     // await page.check("//input[@id='male']");
     await expect(await page.locator("//input[@id='male']")).toBeChecked();
-    await expect(await page.locator("//input[@id='male']").isChecked()).toBeTruthy();
+    await expect(await page.locator("//input[@id='male']").isChecked()).toBeTruthy();//male
+
+    await expect(await page.locator("//input[@id='female']").isChecked()).toBeFalsy();//female
 
 
 
