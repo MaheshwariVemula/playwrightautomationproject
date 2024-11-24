@@ -21,8 +21,13 @@ test("Handle dropdowns", async ({ page }) => {
 
   //3) check presence of value in the Dropdown
 
+  //const content = await page.locator("#colors").textContent();
+  //await expect(content.includes("Blue")).toBeTruthy();
+
   const content = await page.locator("#colors").textContent();
-  await expect(content.includes("Blue")).toBeTruthy();
+  await expect(content.includes("Black")).toBeFalsy();
+
+
 
   await page.waitForTimeout(5000);
 });
