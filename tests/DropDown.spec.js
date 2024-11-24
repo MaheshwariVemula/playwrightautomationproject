@@ -1,5 +1,5 @@
 const { test, expect } = require("@playwright/test");
-test("Handle dropdown", async ({ page }) => {
+test("Handle dropdowns", async ({ page }) => {
   await page.goto("https://testautomationpractice.blogspot.com/");
   // Multiple ways to select option from the dropdown
   //await page.locator("#country").selectOption({label:'United States'}); //label/visible text
@@ -37,17 +37,20 @@ test("Handle dropdown", async ({ page }) => {
   expect(status).toBeTruthy();*/
 
   //5) select option from using loop
-  const options = await page.$$("country option")
-  for(const option of options)
-    {
-        let value=await option.textContent();
-        if(value.inclueds('France'))
-            {
-                await page.selectOption("#country", value);
-                break;
-            }
 
+  const options = await page.$$("#country option");
+  for (const option of options) 
+    {
+    let value = await option.textContent();
+    if (value.includes("France")) 
+        {
+      await page.selectOption("#country", value);
+
+      break;
     }
+  }
 
   await page.waitForTimeout(5000);
+
 });
+
