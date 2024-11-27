@@ -8,17 +8,16 @@ test("Hidden dropdown", async ({ page }) => {
   await page.locator("[name='password']").fill("admin123");
   await page.locator("[type='submit']").click();
   await page
-    .locator(
-      "//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name'][normalize-space()='PIM']"
-    )
+    .locator("//span[normalize-space()='PIM']")
+
     .click();
   //click on dropdown
   await page
-    .locator("//div[6]//div[1]//div[2]//div[1]//div[1]//div[2]//i[1]")
+    .locator("//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[6]/div/div[2]/div/div/div[2]")
     .click();
   //waiting for options
 
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(3000);
   const options = await page.$$("//div[@role='listbox']//span");
   for (let option of options) {
     const jobTitle = await option.textContent();
@@ -28,4 +27,5 @@ test("Hidden dropdown", async ({ page }) => {
       break;
     }
   }
+  await page.waitForTimeout(5000);
 });
