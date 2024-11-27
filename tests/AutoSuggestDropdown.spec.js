@@ -9,7 +9,7 @@ test('Auto suggest dropdown', async({page})=>{
         {
            const value=  await option.textContent()
            //console.log(value);
-           if(value.includes('Tis Hazari'))
+           if(value.includes('Akshardham Metro Station'))
             {
                 await option.click()
                 break;
