@@ -17,7 +17,7 @@ test('Handle frames',async({page})=>{
 
   //approach2:  using from locator
   const inputs=await page.frameLocator("frame[src='frame_1.html']").locator("[name='mytext1']")
-  await inputs.fill("HHHHHHAAI")
+  await inputs.fill("Hellloooooo")
 
 
     await page.waitForTimeout(5000)
